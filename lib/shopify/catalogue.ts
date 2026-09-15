@@ -18,7 +18,6 @@ export interface Commerce {
   variantId: string;
   priceInPaise: number;
   available: boolean;
-  quantityAvailable: number | null;
 }
 
 export type CommerceMap = Map<string, Commerce>;
@@ -49,7 +48,6 @@ export async function getCommerce(): Promise<CommerceMap> {
         variantId: variant.id,
         priceInPaise: toPaise(variant.price),
         available: product.availableForSale && variant.availableForSale,
-        quantityAvailable: variant.quantityAvailable,
       });
     }
     return map;

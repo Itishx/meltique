@@ -9,7 +9,6 @@ export interface ShopifyVariant {
   id: string;
   title: string;
   availableForSale: boolean;
-  quantityAvailable: number | null;
   price: Money;
 }
 
@@ -18,7 +17,6 @@ export interface ShopifyProduct {
   handle: string;
   title: string;
   availableForSale: boolean;
-  totalInventory: number | null;
   priceRange: { minVariantPrice: Money };
   variants: { nodes: ShopifyVariant[] };
 }

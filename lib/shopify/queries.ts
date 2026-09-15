@@ -89,7 +89,13 @@ export const CART_LINES_REMOVE = `
 `;
 
 /** Everything commerce needs about the catalogue. Editorial content stays in
- *  lib/products.ts — Shopify only supplies price, stock and variant ids. */
+ *  lib/products.ts — Shopify only supplies price, availability and variant ids.
+ *
+ *  Note: `totalInventory` and `quantityAvailable` are deliberately absent.
+ *  They require the `unauthenticated_read_product_inventory` scope, which a
+ *  Headless storefront token does not carry, and requesting them fails the
+ *  whole query rather than just that field. `availableForSale` answers the
+ *  only question the storefront actually asks. */
 export const PRODUCTS_QUERY = `
   ${MONEY}
   query Products($first: Int!) {
@@ -99,14 +105,12 @@ export const PRODUCTS_QUERY = `
         handle
         title
         availableForSale
-        totalInventory
         priceRange { minVariantPrice { ...Money } }
         variants(first: 10) {
           nodes {
             id
             title
             availableForSale
-            quantityAvailable
             price { ...Money }
           }
         }
