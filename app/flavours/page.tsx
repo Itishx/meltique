@@ -5,6 +5,7 @@ import { assortedBox, flavours } from "@/lib/products";
 import { formatPrice } from "@/lib/format";
 import { Media } from "@/components/ui/Media";
 import { Reveal } from "@/components/ui/Reveal";
+import { FlavourRail } from "@/components/flavours/FlavourRail";
 
 export const metadata: Metadata = {
   title: "The four flavours",
@@ -34,82 +35,16 @@ export default function FlavoursPage() {
         </Reveal>
       </section>
 
-      {/* -------------------------------------------------------- comparison
-       * A real comparison rather than four essays. Subgrid keeps the rows
-       * aligned across columns, so "Inside" reads straight across.
+      {/* -------------------------------------------------------- the rail
+       * Pinned on a wide screen: the page scrolls down, the cards travel in
+       * from the right. Bigger frames than a four-up grid allows, and they
+       * arrive one at a time rather than all at once.
        */}
       <section aria-labelledby="compare">
         <h2 id="compare" className="sr-only">
           The flavours compared
         </h2>
-
-        <div className="grid grid-cols-1 border-t border-rule sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-[auto_auto_auto_auto_auto]">
-          {flavours.map((product, index) => (
-            <article
-              key={product.slug}
-              className="grid border-b border-rule sm:[&:nth-child(odd)]:border-r lg:row-span-5 lg:grid-rows-subgrid lg:border-r lg:last:border-r-0"
-            >
-              {/* Posters for all four, so the row reads as one set. */}
-              <Link
-                href={`/product/${product.slug}`}
-                className="group relative block overflow-hidden"
-                style={{ backgroundColor: product.poster?.ground ?? product.backdrop }}
-              >
-                <div className="relative aspect-2/3">
-                  <Media
-                    src={product.poster?.src ?? product.images[0].src}
-                    alt={product.poster?.alt ?? product.images[0].alt}
-                    sizes="(min-width: 64rem) 25vw, (min-width: 40rem) 50vw, 100vw"
-                    priority={index < 2}
-                    quality={92}
-                    className="size-full object-cover transition-transform duration-[1600ms] ease-[var(--ease-silk)] group-hover:scale-[1.03]"
-                  />
-                </div>
-                <span className="label absolute left-5 top-5 bg-paper px-3 py-1.5 text-ink">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-              </Link>
-
-              <div className="px-6 pt-7 md:px-8">
-                <h3 className="display text-[1.75rem] leading-[1.15] md:text-[2rem]">
-                  <Link href={`/product/${product.slug}`} className="hover:opacity-70">
-                    {product.name}
-                  </Link>
-                </h3>
-                <p className="display mt-2 text-lg italic text-gold">
-                  {product.tagline}
-                </p>
-              </div>
-
-              <dl className="mt-6 px-6 md:px-8">
-                <dt className="label text-muted">Inside</dt>
-                <dd className="mt-2 text-sm leading-relaxed">{product.inside}</dd>
-              </dl>
-
-              <dl className="mt-5 px-6 md:px-8">
-                <dt className="label text-muted">Notes</dt>
-                <dd className="mt-2 text-sm leading-relaxed">
-                  {product.sensoryNotes.join(" · ")}
-                </dd>
-              </dl>
-
-              <div className="mt-6 px-6 pb-7 md:px-8">
-                <div className="flex items-baseline justify-between gap-4 border-t border-rule pt-5">
-                  <span className="display text-2xl tabular-nums">
-                    {formatPrice(product.priceInPaise)}
-                  </span>
-                  <span className="label text-muted">{product.weight}</span>
-                </div>
-                <Link
-                  href={`/product/${product.slug}`}
-                  className="label link-draw mt-5 inline-block text-gold"
-                >
-                  View this box
-                </Link>
-              </div>
-            </article>
-          ))}
-        </div>
+        <FlavourRail products={flavours} />
       </section>
 
       {/* -------------------------------------------------- inside the cube */}
