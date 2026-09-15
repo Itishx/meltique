@@ -8,6 +8,7 @@ import { startCheckout } from "@/lib/checkout";
 import { formatPrice } from "@/lib/format";
 import { Media } from "@/components/ui/Media";
 import { QuantityStepper } from "@/components/product/QuantityStepper";
+import { DeliveryMeter } from "./DeliveryMeter";
 
 /**
  * The full cart.
@@ -135,14 +136,18 @@ export function CartView() {
           Summary
         </h2>
 
-        <dl className="mt-6 space-y-3 text-sm">
+<div className="-mx-6 mb-6 border-y border-rule">
+          <DeliveryMeter subtotalInPaise={subtotalInPaise} />
+        </div>
+
+                <dl className="mt-6 space-y-3 text-sm">
           <div className="flex justify-between">
             <dt className="text-muted">Subtotal</dt>
             <dd className="tabular-nums">{formatPrice(subtotalInPaise)}</dd>
           </div>
           <div className="flex justify-between">
             <dt className="text-muted">Delivery</dt>
-            <dd className="text-right text-muted">To be confirmed</dd>
+            <dd className="text-right text-muted">Calculated at checkout</dd>
           </div>
           <div className="flex justify-between border-t border-rule pt-4">
             <dt className="label pt-1">Subtotal</dt>

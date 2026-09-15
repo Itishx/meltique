@@ -8,6 +8,7 @@ import { formatPrice } from "@/lib/format";
 import { site } from "@/lib/site";
 import { Media } from "@/components/ui/Media";
 import { QuantityStepper } from "@/components/product/QuantityStepper";
+import { DeliveryMeter } from "./DeliveryMeter";
 
 /**
  * The cart, as a drawer. Focus moves into it on open and returns to the
@@ -95,6 +96,10 @@ export function CartDrawer() {
             Close
           </button>
         </div>
+
+        {/* Directly under the header, where it reads as a fact about this cart
+            rather than an upsell tacked on beside the total. */}
+        {lines.length > 0 ? <DeliveryMeter subtotalInPaise={subtotalInPaise} /> : null}
 
         {lines.length === 0 ? (
           <div className="flex flex-1 flex-col items-center justify-center gap-5 px-8 text-center">

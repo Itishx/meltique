@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit",
     "imagery": "node scripts/prepare-imagery.mjs",
     "shopify:check": "node scripts/shopify-check.mjs",
-    "shopify:sync": "node scripts/shopify-sync.mjs"
+    "shopify:sync": "node scripts/shopify-sync.mjs",
+    "shopify:discount": "node scripts/shopify-discount.mjs"
   },
   "dependencies": {
     "next": "16.3.4",

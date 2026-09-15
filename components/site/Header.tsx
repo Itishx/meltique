@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { clsx } from "@/lib/clsx";
 import { useCart, useHydrated } from "@/lib/cart";
 import { nav, site } from "@/lib/site";
+import { AnnouncementBar } from "./AnnouncementBar";
 import { Wordmark } from "./Wordmark";
 
 /**
@@ -41,11 +42,15 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
     <header
       className={clsx(
         "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,color] duration-500",
+        /* The promo bar carries its own opaque ground, so only the nav row
+           below it goes transparent over a hero. */
         onDark
           ? "border-b border-transparent text-on-dark"
           : "border-b border-rule bg-paper/92 text-ink backdrop-blur-xl",
       )}
     >
+      <AnnouncementBar />
+
       {/* Three columns so the nav stays optically centred whatever the sides do. */}
       {/* Mobile is a plain flex row. The three-column grid exists only to centre
           the desktop nav, and on a phone it reserves equal side columns for a
