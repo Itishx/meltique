@@ -11,7 +11,8 @@
     "imagery": "node scripts/prepare-imagery.mjs",
     "shopify:check": "node scripts/shopify-check.mjs",
     "shopify:sync": "node scripts/shopify-sync.mjs",
-    "shopify:discount": "node scripts/shopify-discount.mjs"
+    "shopify:discount": "node scripts/shopify-discount.mjs",
+    "shopify:shipping": "node scripts/shopify-shipping.mjs"
   },
   "dependencies": {
     "next": "16.3.4",
