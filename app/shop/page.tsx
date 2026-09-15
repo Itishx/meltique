@@ -5,6 +5,7 @@ import { assortedBox, flavours, fromPriceInPaise } from "@/lib/products";
 import { formatPrice } from "@/lib/format";
 import { site } from "@/lib/site";
 import { Media } from "@/components/ui/Media";
+import { PreOrderButton } from "@/components/product/PreOrderButton";
 import { ProductWall } from "@/components/product/ProductWall";
 import { Reveal } from "@/components/ui/Reveal";
 import { Wordmark } from "@/components/site/Wordmark";
@@ -156,12 +157,15 @@ export default function ShopPage() {
                   <span className="label text-muted">{assortedBox.weight}</span>
                 </p>
 
-                <Link
-                  href={`/product/${assortedBox.slug}`}
-                  className="label mt-8 inline-flex h-13 w-fit items-center bg-gold px-9 text-espresso transition-colors duration-300 hover:bg-on-dark"
-                >
-                  View the assorted box
-                </Link>
+                <div className="mt-8 flex flex-col gap-4 sm:max-w-md">
+                  <PreOrderButton product={assortedBox} size="lg" />
+                  <Link
+                    href={`/product/${assortedBox.slug}`}
+                    className="label link-draw self-start text-gold"
+                  >
+                    See what is inside
+                  </Link>
+                </div>
               </div>
             </div>
           </Reveal>

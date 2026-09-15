@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { products } from "@/lib/products";
 import { site } from "@/lib/site";
 import { Reveal } from "@/components/ui/Reveal";
-import { PreOrderForm } from "@/components/site/PreOrderForm";
+import { PreOrderPicker } from "@/components/site/PreOrderPicker";
 
 export const metadata: Metadata = {
   title: "Pre-order",
@@ -22,9 +22,8 @@ export default function PreOrderPage() {
             Reserve a box.
           </h1>
           <p className="mt-6 max-w-[60ch] text-base text-muted">
-            {site.preOrderNote} Tell us which box you want and we will come back
-            to you with dispatch dates and the final price before anything is
-            confirmed.
+            {site.preOrderNote} Choose a box, check out, and we will confirm
+            dispatch dates by email before the first run ships.
           </p>
 
           <dl className="mt-12 space-y-6 border-t border-rule pt-8">
@@ -41,14 +40,14 @@ export default function PreOrderPage() {
             <div>
               <dt className="label text-muted">Payment</dt>
               <dd className="mt-2 text-sm">
-                Nothing is charged at pre-order. {site.deliveryNote}
+                Taken securely at checkout by Shopify. {site.deliveryNote}
               </dd>
             </div>
           </dl>
         </Reveal>
 
         <Reveal delay={120}>
-          <PreOrderForm products={products} />
+          <PreOrderPicker products={products} />
         </Reveal>
       </div>
     </div>

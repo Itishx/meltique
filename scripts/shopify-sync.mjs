@@ -75,6 +75,16 @@ const DOCUMENT = `
 
 const rupees = (paise) => (paise / 100).toFixed(2);
 
+/* The catalogue carries weight as display copy ("4 cubes · 48 g"), which is
+   right for the page; Shopify needs the number. Packaging is added on top so
+   the shipped weight is the parcel, not the chocolate. */
+const PACKAGING_GRAMS = 40;
+function grams(weightLabel) {
+  const match = /(\d+(?:\.\d+)?)\s*g/i.exec(weightLabel ?? "");
+  const net = match ? Number.parseFloat(match[1]) : 0;
+  return net > 0 ? net + PACKAGING_GRAMS : 0;
+}
+
 function describe(product) {
   /* The product page is the real writing; Shopify gets a faithful short
      version so the admin and any channel listing read properly. */
@@ -116,6 +126,15 @@ function toInput(product) {
         price: rupees(product.priceInPaise),
         sku: `MLTK-${product.slug.toUpperCase().replace(/-/g, "")}`,
         inventoryPolicy: "DENY",
+        inventoryItem: {
+          requiresShipping: true,
+          /* Shopify prices weight-based shipping off this. Left at zero it
+             quietly costs money on every order, so it is derived from the
+             catalogue's own weight string rather than left to default. */
+          measurement: {
+            weight: { value: grams(product.weight), unit: "GRAMS" },
+          },
+        },
       },
     ],
     files: image

@@ -4,7 +4,7 @@ import { clsx } from "@/lib/clsx";
 import { formatPrice } from "@/lib/format";
 import type { Product } from "@/lib/types";
 import { Media } from "@/components/ui/Media";
-import { QuickAdd } from "./QuickAdd";
+import { PreOrderButton } from "./PreOrderButton";
 
 /**
  * A knitted product wall.
@@ -100,12 +100,18 @@ export function ProductWall({
               {product.inside ?? product.summary}
             </p>
 
-            <div className={clsx("mt-auto flex items-center justify-between gap-6 border-t pt-6 md:mt-8", rule)}>
+            {/* Price and weight sit as a line of type; the gold bar below is
+                the only control. The circular quick-add used to live here too,
+                which gave the card two ways to do one thing and made neither
+                read as the action. */}
+            <div className={clsx("mt-auto flex items-baseline justify-between gap-6 border-t pt-6 md:mt-8", rule)}>
               <p className="display text-2xl tabular-nums">
                 {formatPrice(product.priceInPaise)}
               </p>
-              <QuickAdd product={product} tone={tone} />
+              <p className={clsx("label", muted)}>{product.weight}</p>
             </div>
+
+            <PreOrderButton product={product} tone={tone} className="mt-5" />
           </div>
         </article>
       ))}

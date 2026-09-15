@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react";
 import type { Product } from "@/lib/types";
 import { formatPrice } from "@/lib/format";
 import { Media } from "@/components/ui/Media";
+import { PreOrderButton } from "@/components/product/PreOrderButton";
 
 /**
  * The four flavours as a rail rather than a grid.
@@ -156,6 +157,8 @@ export function FlavourRail({ products }: { products: Product[] }) {
                     View this box
                   </Link>
                 </div>
+
+                <PreOrderButton product={product} className="mt-5" />
               </div>
             </article>
           ))}

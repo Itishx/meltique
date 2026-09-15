@@ -6,6 +6,7 @@ import { formatPrice } from "@/lib/format";
 import { Media } from "@/components/ui/Media";
 import { Reveal } from "@/components/ui/Reveal";
 import { FlavourRail } from "@/components/flavours/FlavourRail";
+import { PreOrderButton } from "@/components/product/PreOrderButton";
 
 export const metadata: Metadata = {
   title: "The four flavours",
@@ -109,12 +110,15 @@ export default function FlavoursPage() {
                   </span>
                   <span className="label text-muted">{assortedBox.weight}</span>
                 </p>
-                <Link
-                  href={`/product/${assortedBox.slug}`}
-                  className="label mt-8 inline-flex h-13 w-fit items-center bg-gold px-9 text-espresso transition-colors duration-300 hover:bg-on-dark"
-                >
-                  The Assorted Box
-                </Link>
+                <div className="mt-8 flex flex-col gap-4 sm:max-w-md">
+                  <PreOrderButton product={assortedBox} size="lg" />
+                  <Link
+                    href={`/product/${assortedBox.slug}`}
+                    className="label link-draw self-start text-gold"
+                  >
+                    See what is inside
+                  </Link>
+                </div>
               </div>
 
               <Link

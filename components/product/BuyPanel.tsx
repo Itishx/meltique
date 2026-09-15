@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 
 import { cartLineId, useCart } from "@/lib/cart";
@@ -34,14 +33,10 @@ export function BuyPanel({ product }: { product: Product }) {
         <dd className="display mt-2 text-xl">{product.sensoryNotes.join(" · ")}</dd>
       </dl>
 
-      <Link
-        href="/pre-order"
-        className="label mt-9 flex h-13 items-center justify-center bg-gold px-8 text-espresso transition-colors duration-300 hover:bg-on-dark"
-      >
-        Pre-order this box
-      </Link>
-
-      <div className="mt-4 flex flex-wrap items-center gap-4">
+      {/* One action, not two. This used to sit under a gold link to the
+          pre-order form, which read as the primary route but reached a page
+          that could not take an order. The real order path gets the gold. */}
+      <div className="mt-9 flex flex-wrap items-center gap-4">
         <QuantityStepper
           value={quantity}
           onChange={setQuantity}
@@ -64,9 +59,15 @@ export function BuyPanel({ product }: { product: Product }) {
             );
             setAdded(true);
           }}
-          className="label h-13 min-w-[13rem] flex-1 border border-rule px-8 transition-colors duration-300 hover:border-gold hover:text-gold"
+          className="label group relative h-14 min-w-[15rem] flex-1 overflow-hidden bg-gold px-8 text-espresso transition-colors duration-500"
         >
-          Add to cart · {formatPrice(product.priceInPaise * quantity)}
+          <span
+            aria-hidden
+            className="absolute inset-0 origin-left scale-x-0 bg-[#f6e3c8] transition-transform duration-[700ms] ease-[var(--ease-silk)] group-hover:scale-x-100"
+          />
+          <span className="relative">
+            Pre-order now · {formatPrice(product.priceInPaise * quantity)}
+          </span>
         </button>
       </div>
 
