@@ -4,19 +4,40 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { useCart, useHydrated } from "@/lib/cart";
+import { startCheckout } from "@/lib/checkout";
 import { formatPrice } from "@/lib/format";
 import { Media } from "@/components/ui/Media";
 import { QuantityStepper } from "@/components/product/QuantityStepper";
 
 /**
- * The full cart. Checkout is not wired to a payment provider yet, so the
- * button says so rather than pretending to take money.
+ * The full cart.
+ *
+ * Checkout hands the basket to Shopify and follows the checkout URL it
+ * returns. Until the store is connected the same button reports that plainly
+ * and points at pre-order, rather than pretending to take money.
  */
 export function CartView() {
   const { lines, subtotalInPaise, setQuantity, remove } = useCart();
   const ready = useHydrated();
   const [message, setMessage] = useState("");
-  const [placed, setPlaced] = useState(false);
+  const [status, setStatus] = useState<"idle" | "working" | "pre-order" | "error">(
+    "idle",
+  );
+  const [note, setNote] = useState("");
+
+  const onCheckout = async () => {
+    setStatus("working");
+    setNote("");
+    const result = await startCheckout(lines);
+
+    if (result.kind === "redirect") {
+      /* Shopify owns the rest: payment, tax, address, confirmation. */
+      window.location.href = result.url;
+      return;
+    }
+    setStatus(result.kind === "pre-order" ? "pre-order" : "error");
+    setNote(result.message);
+  };
 
   if (!ready) {
     return <p className="mt-12 text-sm text-muted">Loading your selection…</p>;
@@ -131,17 +152,24 @@ export function CartView() {
 
         <button
           type="button"
-          onClick={() => setPlaced(true)}
-          className="label mt-8 h-13 w-full bg-cocoa text-gold transition-colors duration-300 hover:bg-espresso"
+          onClick={onCheckout}
+          disabled={status === "working"}
+          className="label mt-8 h-13 w-full bg-cocoa text-gold transition-colors duration-300 hover:bg-espresso disabled:opacity-60"
         >
-          Proceed to checkout
+          {status === "working" ? "Opening checkout…" : "Proceed to checkout"}
         </button>
 
         <p aria-live="polite" className="mt-4 text-xs text-muted">
-          {placed
-            ? "Checkout is not connected to a payment provider in this build. No order was placed and no card details were taken."
+          {status === "pre-order" || status === "error"
+            ? note
             : "Taxes calculated at checkout. Dispatched within two working days."}
         </p>
+
+        {status === "pre-order" ? (
+          <Link href="/pre-order" className="label link-draw mt-4 inline-block text-gold">
+            Reserve a box instead
+          </Link>
+        ) : null}
       </section>
     </div>
   );

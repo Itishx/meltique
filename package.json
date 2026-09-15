@@ -8,12 +8,15 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "imagery": "node scripts/prepare-imagery.mjs"
+    "imagery": "node scripts/prepare-imagery.mjs",
+    "shopify:check": "node scripts/shopify-check.mjs",
+    "shopify:sync": "node scripts/shopify-sync.mjs"
   },
   "dependencies": {
     "next": "16.3.4",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -25,5 +28,5 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   },
-  "description": "MELTYK — luxury D2C chocolate. Crafted indulgence. Stories in every bite."
+  "description": "MELTYK \u2014 luxury D2C chocolate. Crafted indulgence. Stories in every bite."
 }
