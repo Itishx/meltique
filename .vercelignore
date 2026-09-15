@@ -1,0 +1,3 @@
+# Build inputs only: the imagery script reads these locally and writes into
+# public/. Nothing at runtime needs them, and they are ~25 MB.
+assets/
