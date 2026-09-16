@@ -126,7 +126,7 @@ export default function OurStoryPage() {
               <p className="label text-gold">Individual</p>
               <h3 className="display mt-4 text-display-sm">Four of one flavour.</h3>
               <p className="mt-4 max-w-[52ch] text-sm text-muted">
-                For the person who already knows what they like. Classic Dark,
+                For the person who already knows what they like. Meltyk Muse,
                 Caramel Crunch, Fruit &amp; Nut or Protein.
               </p>
               <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2.5">

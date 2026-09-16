@@ -41,7 +41,7 @@ export const articles: Article[] = [
     title: "Four flavours, four arguments",
     category: "Flavour",
     excerpt:
-      "Classic Dark, Caramel, Fruit & Nut and Protein were not chosen to cover a spectrum. Each one answers a different question.",
+      "Meltyk Muse, Caramel, Fruit & Nut and Protein were not chosen to cover a spectrum. Each one answers a different question.",
     date: "2026-08-21",
     readingMinutes: 4,
     featured: true,
@@ -51,7 +51,7 @@ export const articles: Article[] = [
     },
     body: [
       "Most ranges are built as a gradient of 40%, 55%, 70%, 85%, which is honest but tells you nothing except how much sugar was removed.",
-      "## Classic Dark: bold, pure, timeless",
+      "## Meltyk Muse: bold, pure, timeless",
       "The control. Seventy percent single origin, no centre, no inclusion. If this one is not right, nothing else in the range can be.",
       "## Caramel: smooth, buttery, addictive",
       "The indulgent one. Salted caramel that flows rather than sets, in a shell thin enough to give under light pressure.",
@@ -78,7 +78,7 @@ export const articles: Article[] = [
     body: [
       "A whole cube tells you very little. A cut one tells you almost everything: whether the caramel was cooked far enough, whether the almonds were placed or stirred, whether the shell is even.",
       "## Intense dark chocolate",
-      "The Classic Dark cuts to a matte, dense face with no air. Any bubble means the mould was filled too fast.",
+      "The Meltyk Muse cuts to a matte, dense face with no air. Any bubble means the mould was filled too fast.",
       "## Flowing caramel centre",
       "The caramel should slump slightly at the cut and then stop. If it runs, it was under-cooked; if it holds a sharp edge, it was over.",
       "## Real fruits and crunchy nuts",

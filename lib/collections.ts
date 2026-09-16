@@ -19,12 +19,12 @@ export const collections: Collection[] = [
     name: "The Four",
     kicker: "Start here",
     intro: "Four distinct flavours. One signature form.",
-    note: "Classic Dark, Caramel, Fruit & Nut and Protein. The same cube, the same clean edges, four entirely different arguments about what a piece of chocolate should do. Buy them singly or take all four.",
+    note: "Meltyk Muse, Caramel, Fruit & Nut and Protein. The same cube, the same clean edges, four entirely different arguments about what a piece of chocolate should do. Buy them singly or take all four.",
     image: {
       src: "/images/collections/flavours.jpg",
       alt: "The four Meltyk wrappers scattered together in black, copper, burgundy and ivory",
     },
-    productSlugs: ["classic-dark", "caramel-crunch", "fruit-nut", "protein"],
+    productSlugs: ["meltyk-muse", "caramel-crunch", "fruit-nut", "protein"],
   },
   {
     slug: "assorted",
@@ -37,7 +37,7 @@ export const collections: Collection[] = [
       src: "/images/collections/assorted.jpg",
       alt: "The Meltyk assorted box open, wrapped cubes arranged in four colour lanes",
     },
-    productSlugs: ["assorted", "caramel-crunch", "classic-dark"],
+    productSlugs: ["assorted", "caramel-crunch", "meltyk-muse"],
   },
   {
     slug: "gifting",
@@ -63,7 +63,7 @@ export const collections: Collection[] = [
       src: "/images/collections/everyday.jpg",
       alt: "The Meltyk tube lying beside four wrapped cubes",
     },
-    productSlugs: ["protein", "classic-dark", "assorted"],
+    productSlugs: ["protein", "meltyk-muse", "assorted"],
   },
 ];
 

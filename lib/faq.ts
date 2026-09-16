@@ -14,7 +14,7 @@ export const faqs: FaqItem[] = [
   {
     question: "What are the four flavours?",
     answer:
-      "Classic Dark, solid dark chocolate the whole way through. Caramel Crunch, a caramel centre with a crunch running through it. Fruit & Nut, packed edge to edge with whole nuts and dried fruit. And Protein, a crunchier cube built around nuts, seeds and puffed grains.",
+      "Meltyk Muse, solid dark chocolate the whole way through. Caramel Crunch, a caramel centre with a crunch running through it. Fruit & Nut, packed edge to edge with whole nuts and dried fruit. And Protein, a crunchier cube built around nuts, seeds and puffed grains.",
   },
   {
     question: "Can I mix my own flavours in one box?",

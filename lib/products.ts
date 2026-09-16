@@ -19,8 +19,8 @@ const GIFT_MATERIALS = [
 
 export const products: Product[] = [
   {
-    slug: "classic-dark",
-    name: "Classic Dark",
+    slug: "meltyk-muse",
+    name: "Meltyk Muse",
     tagline: "Bold. Pure. Timeless.",
     summary: "Four dark chocolate cubes, solid the whole way through.",
     swatch: "#1c1917",
@@ -28,20 +28,20 @@ export const products: Product[] = [
     inside: "Intense dark chocolate",
     insideImage: {
       src: "/images/inside/classic-dark.jpg",
-      alt: "A Meltyk Classic Dark cube broken in two, showing dense dark chocolate through the break",
+      alt: "A Meltyk Muse cube broken in two, showing dense dark chocolate through the break",
     },
     insideSquare: {
       src: "/images/inside/classic-dark-square.jpg",
-      alt: "A Meltyk Classic Dark cube broken in two, showing dense dark chocolate through the break",
+      alt: "A Meltyk Muse cube broken in two, showing dense dark chocolate through the break",
     },
     poster: {
       src: "/images/posters/classic-dark.jpg",
-      alt: "Meltyk Classic Dark poster, dark chocolate squares under a pour of melted chocolate",
+      alt: "Meltyk Muse poster, dark chocolate squares under a pour of melted chocolate",
       ground: "#4d1b0c",
     },
     boxImage: {
       src: "/images/boxes/classic-dark.jpg",
-      alt: "A MELTYK Box of 4 Classic Dark, open on four M-embossed dark chocolate cubes",
+      alt: "A MELTYK Box of 4 Meltyk Muse, open on four M-embossed dark chocolate cubes",
     },
     weight: "4 cubes · 48 g",
     priceInPaise: 35000,
@@ -58,9 +58,9 @@ export const products: Product[] = [
     occasions: ["For someone you love", "Thank you"],
     featured: true,
     images: [
-      { src: "/images/posters/classic-dark.jpg", alt: "Meltyk Classic Dark, dark chocolate under a pour of melted chocolate" },
-      { src: "/images/inside/classic-dark-square.jpg", alt: "A Classic Dark cube broken open, solid chocolate through the break" },
-      { src: "/images/products/cube-classic-dark/1.jpg", alt: "A Classic Dark cube with its embossed M, beside the black wrapper" },
+      { src: "/images/posters/classic-dark.jpg", alt: "Meltyk Muse, dark chocolate under a pour of melted chocolate" },
+      { src: "/images/inside/classic-dark-square.jpg", alt: "A Meltyk Muse cube broken open, solid chocolate through the break" },
+      { src: "/images/products/cube-classic-dark/1.jpg", alt: "A Meltyk Muse cube with its embossed M, beside the black wrapper" },
     ],
     related: ["caramel-crunch", "assorted", "fruit-nut"],
   },
@@ -109,7 +109,7 @@ export const products: Product[] = [
       { src: "/images/posters/caramel.jpg", alt: "Meltyk Caramel Crunch poster, caramel chocolate under a pour of melted caramel" },
       { src: "/images/inside/caramel-square.jpg", alt: "A Caramel Crunch cube broken open, caramel centre embedded in chocolate" },
     ],
-    related: ["assorted", "classic-dark", "protein"],
+    related: ["assorted", "meltyk-muse", "protein"],
   },
   {
     slug: "fruit-nut",
@@ -201,7 +201,7 @@ export const products: Product[] = [
       { src: "/images/inside/protein-square.jpg", alt: "A Protein cube broken open, nuts and seeds packed through the chocolate" },
       { src: "/images/products/cube-protein/1.jpg", alt: "A Protein cube with its embossed M, beside the ivory wrapper" },
     ],
-    related: ["fruit-nut", "assorted", "classic-dark"],
+    related: ["fruit-nut", "assorted", "meltyk-muse"],
   },
   {
     slug: "assorted",
@@ -212,7 +212,7 @@ export const products: Product[] = [
     backdrop: "#241711",
     weight: "4 cubes · 52 g",
     priceInPaise: 39900,
-    sensoryNotes: ["Classic Dark", "Caramel Crunch", "Fruit & Nut", "Protein"],
+    sensoryNotes: ["Meltyk Muse", "Caramel Crunch", "Fruit & Nut", "Protein"],
     story: [
       "One cube of each flavour, wrapped in its own colour and set in a fitted tray.",
       "The shortest way to taste the whole range, and the box most people give away rather than keep.",
@@ -231,7 +231,7 @@ export const products: Product[] = [
       { src: "/images/products/assorted-box/3.jpg", alt: "The assorted box lid, foil-blocked Meltyk logotype over a debossed monogram" },
       { src: "/images/editorial/wrappers.jpg", alt: "The four Meltyk wrappers laid side by side" },
     ],
-    related: ["caramel-crunch", "classic-dark", "fruit-nut"],
+    related: ["caramel-crunch", "meltyk-muse", "fruit-nut"],
   },
 ];
 

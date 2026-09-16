@@ -43,7 +43,7 @@ export default function HomePage() {
                 Four flavours everyone already loves.
               </h2>
               <p className="mt-5 max-w-[64ch] text-base text-muted-ivory">
-                No obscure percentages, no acquired tastes. Classic Dark,
+                No obscure percentages, no acquired tastes. Meltyk Muse,
                 Caramel Crunch, Fruit &amp; Nut and Protein, the four people
                 actually reach for.
               </p>

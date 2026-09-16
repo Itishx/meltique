@@ -11,7 +11,7 @@ import { PreOrderButton } from "@/components/product/PreOrderButton";
 export const metadata: Metadata = {
   title: "The four flavours",
   description:
-    "Classic Dark, Caramel Crunch, Fruit & Nut and Protein. One signature cube, four distinct flavours, side by side.",
+    "Meltyk Muse, Caramel Crunch, Fruit & Nut and Protein. One signature cube, four distinct flavours, side by side.",
   alternates: { canonical: "/flavours" },
 };
 

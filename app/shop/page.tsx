@@ -21,7 +21,7 @@ const HOW = [
   {
     n: "01",
     title: "Pick a flavour",
-    body: "Four cubes of Classic Dark, Caramel Crunch, Fruit & Nut or Protein.",
+    body: "Four cubes of Meltyk Muse, Caramel Crunch, Fruit & Nut or Protein.",
   },
   {
     n: "02",
