@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { formatPrice } from "@/lib/format";
+import { currentFromInPaise as currentFrom } from "@/lib/pricing";
 import { Media } from "@/components/ui/Media";
 
 /**
@@ -66,7 +67,7 @@ export function GiftFormats({ fromPriceInPaise }: { fromPriceInPaise: number }) 
 
             <div className="mt-auto flex items-center justify-between gap-6 border-t border-rule pt-6 md:mt-8">
               <p className="display text-2xl tabular-nums">
-                From {formatPrice(fromPriceInPaise)}
+                From {formatPrice(currentFrom ?? fromPriceInPaise)}
               </p>
               <Link href={format.href} className="label link-draw text-gold">
                 {format.cta}

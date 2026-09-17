@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import { cartLineId, useCart } from "@/lib/cart";
 import { clsx } from "@/lib/clsx";
+import { priceOf } from "@/lib/pricing";
 import type { Product } from "@/lib/types";
 
 /**
@@ -29,7 +30,7 @@ export function QuickAdd({
           id: cartLineId(product.slug),
           slug: product.slug,
           name: product.name,
-          priceInPaise: product.priceInPaise,
+          priceInPaise: priceOf(product).now,
           image: product.images[0].src,
           imageAlt: product.images[0].alt,
         });

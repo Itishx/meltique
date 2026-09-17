@@ -4,6 +4,8 @@ import { useState } from "react";
 
 import { cartLineId, useCart } from "@/lib/cart";
 import { formatPrice } from "@/lib/format";
+import { priceOf } from "@/lib/pricing";
+import { Price } from "./Price";
 import { site } from "@/lib/site";
 import type { Product } from "@/lib/types";
 import { QuantityStepper } from "./QuantityStepper";
@@ -21,7 +23,7 @@ export function BuyPanel({ product }: { product: Product }) {
     <div>
       <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
         <p className="display text-3xl tabular-nums">
-          {formatPrice(product.priceInPaise)}
+          <Price product={product} size="lg" />
         </p>
         <p className="label text-muted">{product.weight}</p>
       </div>
@@ -51,7 +53,7 @@ export function BuyPanel({ product }: { product: Product }) {
                 id: cartLineId(product.slug),
                 slug: product.slug,
                 name: product.name,
-                priceInPaise: product.priceInPaise,
+                priceInPaise: priceOf(product).now,
                 image: product.images[0].src,
                 imageAlt: product.images[0].alt,
               },
@@ -66,7 +68,7 @@ export function BuyPanel({ product }: { product: Product }) {
             className="absolute inset-0 origin-left scale-x-0 bg-[#f6e3c8] transition-transform duration-[700ms] ease-[var(--ease-silk)] group-hover:scale-x-100"
           />
           <span className="relative">
-            Get it now · {formatPrice(product.priceInPaise * quantity)}
+            Get it now · {formatPrice(priceOf(product).now * quantity)}
           </span>
         </button>
       </div>

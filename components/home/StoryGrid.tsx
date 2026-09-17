@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { clsx } from "@/lib/clsx";
 import { formatPrice } from "@/lib/format";
+import { currentFromInPaise as currentFrom } from "@/lib/pricing";
 import { fromPriceInPaise } from "@/lib/products";
 import type { Product } from "@/lib/types";
 import { LoopingVideo } from "@/components/ui/LoopingVideo";
@@ -153,7 +154,7 @@ export function StoryGrid({
                     </ul>
 
                     <p className="mt-7 text-sm tabular-nums">
-                      From {formatPrice(fromPriceInPaise)}
+                      From {formatPrice(currentFrom ?? fromPriceInPaise)}
                       <span className="ml-3 text-muted">4 cubes</span>
                     </p>
 

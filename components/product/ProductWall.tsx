@@ -4,6 +4,7 @@ import { clsx } from "@/lib/clsx";
 import { formatPrice } from "@/lib/format";
 import type { Product } from "@/lib/types";
 import { Media } from "@/components/ui/Media";
+import { Price } from "./Price";
 import { PreOrderButton } from "./PreOrderButton";
 
 /**
@@ -105,9 +106,7 @@ export function ProductWall({
                 which gave the card two ways to do one thing and made neither
                 read as the action. */}
             <div className={clsx("mt-auto flex items-baseline justify-between gap-6 border-t pt-6 md:mt-8", rule)}>
-              <p className="display text-2xl tabular-nums">
-                {formatPrice(product.priceInPaise)}
-              </p>
+              <Price product={product} tone={tone} />
               <p className={clsx("label", muted)}>{product.weight}</p>
             </div>
 

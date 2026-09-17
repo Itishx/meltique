@@ -55,6 +55,7 @@ if (WRITE && !token) die("SHOPIFY_ADMIN_TOKEN is not set. Needed for --write.");
 
 /* ----------------------------------------------------------- catalogue -- */
 const { products } = await import("../lib/products.ts");
+const { priceOf } = await import("../lib/pricing.ts");
 
 /* `productSet` upserts on the handle identifier, which is what makes this
    script safe to re-run: the same five products are updated, not duplicated. */
@@ -123,7 +124,12 @@ function toInput(product) {
     variants: [
       {
         optionValues: [{ optionName: "Title", name: "Default Title" }],
-        price: rupees(product.priceInPaise),
+        /* Shopify is what actually charges the card, so the launch price has
+           to live here too — showing 200 on the site while Shopify holds 350
+           would take the wrong amount at checkout. compareAtPrice carries the
+           list price, which is what Shopify's own surfaces strike through. */
+        price: rupees(priceOf(product).now),
+        compareAtPrice: priceOf(product).was ? rupees(priceOf(product).was) : null,
         sku: `MLTK-${product.slug.toUpperCase().replace(/-/g, "")}`,
         inventoryPolicy: "DENY",
         inventoryItem: {
@@ -184,7 +190,8 @@ let failures = 0;
 
 for (const product of products) {
   const input = toInput(product);
-  const price = `₹${rupees(product.priceInPaise)}`;
+  const p = priceOf(product);
+  const price = p.was ? `₹${rupees(p.now)} (was ₹${rupees(p.was)})` : `₹${rupees(p.now)}`;
 
   if (!WRITE) {
     console.log(`  · ${input.handle.padEnd(16)} ${input.title.padEnd(20)} ${price.padStart(9)}`);

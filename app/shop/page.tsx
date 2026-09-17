@@ -3,8 +3,10 @@ import Link from "next/link";
 
 import { assortedBox, flavours, fromPriceInPaise } from "@/lib/products";
 import { formatPrice } from "@/lib/format";
+import { currentFromInPaise as currentFrom } from "@/lib/pricing";
 import { site } from "@/lib/site";
 import { Media } from "@/components/ui/Media";
+import { Price } from "@/components/product/Price";
 import { PreOrderButton } from "@/components/product/PreOrderButton";
 import { ProductWall } from "@/components/product/ProductWall";
 import { Reveal } from "@/components/ui/Reveal";
@@ -61,7 +63,7 @@ export default function ShopPage() {
 
             <div className="flex flex-col gap-6">
               <p className="display text-display-sm tabular-nums">
-                From {formatPrice(fromPriceInPaise)}
+                From {formatPrice(currentFrom ?? fromPriceInPaise)}
                 <span className="label ml-3 align-middle text-muted">a box</span>
               </p>
               <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
@@ -151,9 +153,7 @@ export default function ShopPage() {
                 </dl>
 
                 <p className="mt-8 flex items-baseline gap-4">
-                  <span className="display text-3xl tabular-nums">
-                    {formatPrice(assortedBox.priceInPaise)}
-                  </span>
+                  <Price product={assortedBox} size="lg" />
                   <span className="label text-muted">{assortedBox.weight}</span>
                 </p>
 

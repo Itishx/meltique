@@ -4,6 +4,7 @@ import Link from "next/link";
 import { assortedBox, flavours } from "@/lib/products";
 import { formatPrice } from "@/lib/format";
 import { Media } from "@/components/ui/Media";
+import { Price } from "@/components/product/Price";
 import { Reveal } from "@/components/ui/Reveal";
 import { FlavourRail } from "@/components/flavours/FlavourRail";
 import { PreOrderButton } from "@/components/product/PreOrderButton";
@@ -105,9 +106,7 @@ export default function FlavoursPage() {
                   rather than keep.
                 </p>
                 <p className="mt-8 flex items-baseline gap-4">
-                  <span className="display text-3xl tabular-nums">
-                    {formatPrice(assortedBox.priceInPaise)}
-                  </span>
+                  <Price product={assortedBox} size="lg" />
                   <span className="label text-muted">{assortedBox.weight}</span>
                 </p>
                 <div className="mt-8 flex flex-col gap-4 sm:max-w-md">

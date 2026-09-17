@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 
 import { getProduct, getRelated, products } from "@/lib/products";
 import { formatPrice } from "@/lib/format";
+import { priceOf } from "@/lib/pricing";
 import { site } from "@/lib/site";
 import { Media } from "@/components/ui/Media";
 import { Reveal } from "@/components/ui/Reveal";
@@ -58,7 +59,7 @@ export default async function ProductPage({
     weight: product.weight,
     offers: {
       "@type": "Offer",
-      price: (product.priceInPaise / 100).toFixed(2),
+      price: (priceOf(product).now / 100).toFixed(2),
       priceCurrency: "INR",
       availability: "https://schema.org/InStock",
       url: new URL(`/product/${product.slug}`, site.url).toString(),
@@ -143,7 +144,7 @@ export default async function ProductPage({
               </p>
               <h3 className="label mt-8 text-muted">Price</h3>
               <p className="mt-4 text-sm tabular-nums">
-                {formatPrice(product.priceInPaise)}
+                {formatPrice(priceOf(product).now)}
               </p>
             </div>
           </div>
