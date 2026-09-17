@@ -69,7 +69,7 @@ export default function ShopPage() {
                   href="/pre-order"
                   className="label flex h-13 items-center bg-gold px-9 text-espresso transition-colors duration-300 hover:bg-on-dark"
                 >
-                  Pre-order a box
+                  Get it now
                 </Link>
                 <Link href="/gifting" className="label link-draw">
                   Sending it as a gift
@@ -233,7 +233,7 @@ export default function ShopPage() {
                     href="/pre-order"
                     className="label mt-auto inline-flex h-12 w-fit items-center bg-gold px-8 pt-px text-espresso transition-colors duration-300 hover:bg-on-dark"
                   >
-                    Pre-order now
+                    Get it now
                   </Link>
                 ) : null}
               </li>

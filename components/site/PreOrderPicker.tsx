@@ -52,7 +52,7 @@ export function PreOrderPicker({ products }: { products: Product[] }) {
 
             <PreOrderButton
               product={product}
-              label="Pre-order"
+              label="Get it now"
               className="sm:w-48 sm:shrink-0"
             />
           </li>

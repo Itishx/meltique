@@ -66,7 +66,7 @@ export function BuyPanel({ product }: { product: Product }) {
             className="absolute inset-0 origin-left scale-x-0 bg-[#f6e3c8] transition-transform duration-[700ms] ease-[var(--ease-silk)] group-hover:scale-x-100"
           />
           <span className="relative">
-            Pre-order now · {formatPrice(product.priceInPaise * quantity)}
+            Get it now · {formatPrice(product.priceInPaise * quantity)}
           </span>
         </button>
       </div>

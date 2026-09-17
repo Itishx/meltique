@@ -21,7 +21,7 @@ import type { Product } from "@/lib/types";
  */
 export function PreOrderButton({
   product,
-  label = "Pre-order now",
+  label = "Get it now",
   tone = "dark",
   size = "md",
   className,
@@ -85,7 +85,7 @@ export function PreOrderButton({
         {added ? "✓" : "→"}
       </span>
       <span className="sr-only">
-        {added ? `${product.name} added to your box` : `Pre-order ${product.name}`}
+        {added ? `${product.name} added to your box` : `Get ${product.name}`}
       </span>
     </button>
   );

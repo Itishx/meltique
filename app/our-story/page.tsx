@@ -167,7 +167,7 @@ export default function OurStoryPage() {
             href="/pre-order"
             className="label inline-flex h-13 items-center bg-gold px-10 text-espresso transition-colors duration-300 hover:bg-on-dark"
           >
-            Pre-order a box
+            Get it now
           </Link>
           <p className="mt-4 text-xs text-muted">{site.preOrderNote}</p>
         </Reveal>

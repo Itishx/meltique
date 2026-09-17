@@ -179,7 +179,7 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
             onClick={() => setMenuOpen(false)}
             className="label flex h-13 w-full items-center justify-center bg-gold text-espresso"
           >
-            Pre-order a box
+            Get it now
           </Link>
           <p className="label mt-5 text-on-dark-muted">{site.tagline}</p>
         </div>
