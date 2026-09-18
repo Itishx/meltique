@@ -40,11 +40,20 @@ export async function getCommerce(): Promise<CommerceMap> {
       { revalidate: 60 },
     );
 
+    /* Shopify is keyed by its own handle, which the POS chooses; the rest of
+       the site is keyed by our slug. Resolve one to the other here so no
+       caller has to know the difference. */
+    const slugFor = new Map(
+      editorial.map((product) => [product.shopifyHandle ?? product.slug, product.slug]),
+    );
+
     const map: CommerceMap = new Map();
     for (const product of data.products.nodes) {
       const variant = product.variants.nodes[0];
       if (!variant) continue;
-      map.set(product.handle, {
+      const slug = slugFor.get(product.handle);
+      if (!slug) continue;
+      map.set(slug, {
         variantId: variant.id,
         priceInPaise: toPaise(variant.price),
         available: product.availableForSale && variant.availableForSale,

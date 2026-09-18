@@ -54,6 +54,26 @@ if (!shop) die("SHOPIFY_STORE_DOMAIN is not set (e.g. 5pxmtf-ni.myshopify.com)."
 if (WRITE && !token) die("SHOPIFY_ADMIN_TOKEN is not set. Needed for --write.");
 
 /* ----------------------------------------------------------- catalogue -- */
+
+/* ------------------------------------------------------------ POS guard --
+ * The catalogue is pushed from the Mesa POS now, which owns the products and
+ * their handles. Running this would create a second, parallel set under our
+ * own handles and split inventory across duplicates, so it is off unless
+ * someone deliberately overrides it.
+ */
+if (WRITE && !process.argv.includes("--i-know-the-pos-owns-this")) {
+  console.error(`
+  Refusing to write.
+
+  The Mesa POS is the source of products in Shopify. Writing from here would
+  create duplicates under our own handles rather than updating the POS ones.
+
+  Prices and stock belong in the POS. If you genuinely need to push from the
+  codebase, re-run with --i-know-the-pos-owns-this.
+`);
+  process.exit(1);
+}
+
 const { products } = await import("../lib/products.ts");
 const { priceOf } = await import("../lib/pricing.ts");
 

@@ -121,16 +121,22 @@ try {
   const remote = new Map(data.products.nodes.map((p) => [p.handle, p]));
 
   if (remote.size === 0) {
-    fail("Shopify has no products", "Run: npm run shopify:sync -- --write");
+    fail(
+      "the storefront sees no products",
+      "Products come from the Mesa POS. In Shopify: Products > select all >" +
+        " ... > Include in sales channels > Meltyk Headless",
+    );
   } else {
     pass(`${remote.size} product${remote.size === 1 ? "" : "s"} in Shopify`);
   }
 
   const missing = [];
   for (const product of local) {
-    const match = remote.get(product.slug);
+    /* The POS names its own handles, so the join is slug -> shopifyHandle. */
+    const handle = product.shopifyHandle ?? product.slug;
+    const match = remote.get(handle);
     if (!match) {
-      missing.push(product.slug);
+      missing.push(`${product.slug} (looking for "${handle}")`);
       continue;
     }
     const variant = match.variants.nodes[0];
@@ -139,12 +145,17 @@ try {
     const stock = match.availableForSale ? "in stock" : "SOLD OUT";
     info(
       `${product.slug.padEnd(16)} ${(remotePaise / 100).toFixed(2).padStart(8)}  ${stock}` +
+        (handle !== product.slug ? `  [shopify: ${handle}]` : "") +
         (drift ? `   (local says ${(product.priceInPaise / 100).toFixed(2)})` : ""),
     );
   }
 
   if (missing.length) {
-    fail(`not in Shopify: ${missing.join(", ")}`, "Run: npm run shopify:sync -- --write");
+    fail(
+      `not visible to the storefront: ${missing.join(", ")}`,
+      "Either publish them to the Meltyk Headless channel, or correct" +
+        " shopifyHandle in lib/products.ts if the POS renamed them",
+    );
   } else if (remote.size > 0) {
     pass("every local product has a Shopify match");
   }
@@ -153,7 +164,7 @@ try {
 }
 
 /* ------------------------------------------------------- 6. admin token -- */
-if (adminToken) pass("admin token present (sync can write)");
-else info("no admin token - needed only for: npm run shopify:sync -- --write");
+if (adminToken) pass("admin token present");
+else info("no admin token - only scripts need it, not the site");
 
 console.log("");

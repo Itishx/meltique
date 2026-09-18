@@ -50,6 +50,14 @@ export interface Product {
   occasions: Occasion[];
   images: ProductImage[];
   /** The box with one cube of every flavour. */
+  /**
+   * The handle this product has in Shopify, when it differs from `slug`.
+   *
+   * The catalogue is pushed from the Mesa POS, which names its own handles.
+   * Renaming them in Shopify would only last until the next POS sync, so the
+   * mapping lives here instead.
+   */
+  shopifyHandle?: string;
   assorted?: boolean;
   featured?: boolean;
   related?: string[];

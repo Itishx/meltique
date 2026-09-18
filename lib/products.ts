@@ -20,6 +20,7 @@ const GIFT_MATERIALS = [
 export const products: Product[] = [
   {
     slug: "meltyk-muse",
+    shopifyHandle: "meltyk-muse-1",
     name: "Meltyk Muse",
     tagline: "Bold. Pure. Timeless.",
     summary: "Four dark chocolate cubes, solid the whole way through.",
@@ -66,6 +67,7 @@ export const products: Product[] = [
   },
   {
     slug: "caramel-crunch",
+    shopifyHandle: "crunchy-caramel",
     name: "Caramel Crunch",
     tagline: "Smooth. Buttery. Addictive.",
     summary: "Four cubes with a caramel centre and a crunch running through it.",
@@ -113,6 +115,7 @@ export const products: Product[] = [
   },
   {
     slug: "fruit-nut",
+    shopifyHandle: "fruit-nut-1",
     name: "Fruit & Nut",
     tagline: "Fruity. Crunchy. Indulgent.",
     summary: "Four cubes packed edge to edge with whole nuts and dried fruit.",
@@ -159,6 +162,7 @@ export const products: Product[] = [
   },
   {
     slug: "protein",
+    shopifyHandle: "protein-chocolate",
     name: "Protein",
     tagline: "Power. In pleasure.",
     summary: "Four crunchier cubes built around nuts, seeds and puffed grains.",
@@ -205,6 +209,7 @@ export const products: Product[] = [
   },
   {
     slug: "assorted",
+    shopifyHandle: "assorted-box",
     name: "The Assorted Box",
     tagline: "One of each. The whole range, once.",
     summary: "Four cubes, one of every flavour, in the signature box.",
