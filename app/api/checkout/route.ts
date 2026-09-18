@@ -39,7 +39,10 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         error: "not_configured",
-        message: "Shopify is not connected yet. Pre-orders are still open.",
+        /* Shown to a shopper, so it says what they can do rather than what
+           the store is missing. */
+        message:
+          "Checkout is briefly unavailable. Reserve your box and we will email you the moment it opens.",
       },
       { status: 503 },
     );
@@ -59,11 +62,20 @@ export async function POST(request: Request) {
 
   const commerce = await getCommerce();
   if (commerce.size === 0) {
+    console.error(
+      "[shopify] checkout blocked: storefront sees no products. Check they are" +
+        " published to the Headless sales channel and that shopifyHandle in" +
+        " lib/products.ts matches the handles the POS created.",
+    );
     return NextResponse.json(
       {
         error: "empty_catalogue",
+        /* This one leaked a developer instruction to customers. Whatever the
+           operational cause — an empty catalogue, products not published to
+           the sales channel — the shopper only needs to know it is us, not
+           them, and what to do next. */
         message:
-          "Shopify has no products yet. Run `npm run shopify:sync` to create them.",
+          "We cannot take orders this minute. Reserve your box and we will email you as soon as we can.",
       },
       { status: 503 },
     );
@@ -92,7 +104,8 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         error: "unavailable",
-        message: "Nothing in the cart is currently available.",
+        message:
+          "Everything in your box has just sold out. Reserve one and we will email you when the next run is ready.",
         unavailable,
       },
       { status: 409 },

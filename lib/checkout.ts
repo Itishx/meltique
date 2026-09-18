@@ -47,7 +47,10 @@ export async function startCheckout(lines: CartLine[]): Promise<CheckoutResult> 
     return { kind: "error", message: "The store sent an unreadable response." };
   }
 
-  if (response.status === 503) {
+  /* 409 means everything in the cart is sold out. Like 503 that is a state of
+     the shop rather than a fault, so it routes to pre-order instead of an
+     error. */
+  if (response.status === 503 || response.status === 409) {
     return {
       kind: "pre-order",
       message: body.message ?? "Pre-orders are open while the store is being set up.",
