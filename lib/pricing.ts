@@ -10,11 +10,14 @@ import type { Product } from "./types";
  * when the offer ends.
  *
  * This has to agree with Shopify. The storefront shows what is here; the
- * checkout charges what Shopify holds. `npm run shopify:sync -- --write`
- * pushes this price with the list price as Shopify's compare-at, which keeps
- * the two in step.
+ * checkout charges what Shopify holds, so changing this number alone would
+ * quote one price and take another.
+ *
+ * The Mesa POS owns the catalogue in Shopify, so the durable place to change
+ * a price is the POS — anything written straight to Shopify is liable to be
+ * overwritten by the next POS sync.
  */
-export const LAUNCH_PRICE_IN_PAISE = 20000;
+export const LAUNCH_PRICE_IN_PAISE = 25000;
 
 /** Set false when the introductory run is over; everything reverts to list. */
 export const LAUNCH_PRICING_ACTIVE = true;
