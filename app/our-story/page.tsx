@@ -56,7 +56,7 @@ export default function OurStoryPage() {
 
           <Reveal delay={100} className="mt-10 space-y-6 text-base leading-[1.85]">
             <p>
-              Ours became Storm One, and we decided to build the thing we
+              Ours became Meltyk, and we decided to build the thing we
               actually cared about: a direct-to-consumer chocolate brand. What
               you are looking at is the result.
             </p>

@@ -69,6 +69,6 @@ export const faqs: FaqItem[] = [
   {
     question: "Who is behind MELTYK?",
     answer:
-      "A small team who have always loved chocolate, building this as Storm One at MESA School of Business. It is the first thing we have made properly, and the whole point was chocolate we would actually want to give someone.",
+      "A small team who have always loved chocolate, building this as Meltyk at MESA School of Business. It is the first thing we have made properly, and the whole point was chocolate we would actually want to give someone.",
   },
 ];
