@@ -29,12 +29,17 @@ export const faqs: FaqItem[] = [
   {
     question: "What does a box cost?",
     answer:
-      "From ₹350, depending on the flavour. The heavier cubes cost a little more. Pricing is indicative until pre-orders are confirmed, and you will see the final figure before anything is charged.",
+      "Every box is the same price whichever flavour you pick, and the first run is going out below the list price. You will see the exact figure on the box itself. Delivery is worked out at checkout from your address, and it is free once the order passes ₹999.",
+  },
+  {
+    question: "Why is it this expensive?",
+    answer:
+      "Because of what goes into the cube, and how much of it there is. We use premium chocolate rather than compound, and the cube is solid the whole way through — dense and heavy for its size rather than whipped up with air to look bigger than it is. You notice it in your hand before you taste it.\n\nThat density is the whole point. One cube goes considerably further than its size suggests: it satisfies you, and it still leaves you wanting the next one. A box of four is four of those moments, rather than one large bar you finish without really noticing.",
   },
   {
     question: "What does pre-ordering actually do?",
     answer:
-      "It reserves a box from the first run and tells us how much to make. Nothing is charged when you pre-order. We come back to you with the final price and a dispatch date, and you confirm from there.",
+      "It reserves a box from the first run and tells us how much to make. You pay at checkout in the normal way — the word pre-order describes when the chocolate ships, not whether the order is real. We will email you the dispatch date before anything leaves us.",
   },
   {
     question: "Is it a good thing to give as a gift?",

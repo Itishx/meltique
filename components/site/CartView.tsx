@@ -164,6 +164,14 @@ export function CartView() {
           {status === "working" ? "Opening checkout…" : "Proceed to checkout"}
         </button>
 
+        <p className="mt-5 text-xs leading-relaxed text-muted">
+          Each cube is solid and dense, not aerated. One is enough, which is why
+          a box of four goes further than it looks.{" "}
+          <Link href="/faq" className="link-draw text-gold">
+            More on the pricing
+          </Link>
+        </p>
+
         <p aria-live="polite" className="mt-4 text-xs text-muted">
           {status === "pre-order" || status === "error"
             ? note

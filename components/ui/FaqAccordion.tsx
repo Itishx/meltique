@@ -51,14 +51,19 @@ export function FaqAccordion({
             </span>
           </summary>
 
-          <p
+          {/* Answers may run to more than one paragraph. Rendering the whole
+              string in a single <p> collapsed the blank line into a space and
+              ran two thoughts together. */}
+          <div
             className={clsx(
-              "max-w-[82ch] pb-10 pr-6 text-base leading-[1.9]",
+              "max-w-[82ch] space-y-5 pb-10 pr-6 text-base leading-[1.9]",
               ivory ? "text-muted-ivory" : "text-muted",
             )}
           >
-            {item.answer}
-          </p>
+            {item.answer.split("\n\n").map((paragraph) => (
+              <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+            ))}
+          </div>
         </details>
       ))}
     </div>

@@ -181,6 +181,12 @@ export function CartDrawer() {
                 </span>
               </div>
 
+              {/* The subtotal is the moment the price gets questioned, so the
+                  answer sits next to it rather than only in the FAQ. */}
+              <p className="mt-2 text-xs leading-relaxed text-muted">
+                Each cube is solid and dense, not aerated. One is enough, which
+                is why four goes further than it looks.
+              </p>
               <p className="mt-2 text-xs text-muted">{site.deliveryNote}</p>
 
               <Link
