@@ -13,8 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: url("/"), lastModified: now, changeFrequency: "weekly", priority: 1 },
     { url: url("/shop"), lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: url("/collections"), lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: url("/gifts"), lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: url("/our-craft"), lastModified: now, changeFrequency: "yearly", priority: 0.7 },
+    { url: url("/gifting"), lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: url("/our-story"), lastModified: now, changeFrequency: "yearly", priority: 0.7 },
     { url: url("/journal"), lastModified: now, changeFrequency: "weekly", priority: 0.7 },
     ...products.map((product) => ({
       url: url(`/product/${product.slug}`),

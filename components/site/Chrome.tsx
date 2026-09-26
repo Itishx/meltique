@@ -5,7 +5,7 @@ import { Header } from "./Header";
 
 /** Routes that open on full-bleed dark imagery get a transparent header.
  *  Home is not one of them — its hero sits on paper. */
-const OVERLAY_ROUTES = ["/our-craft", "/gifts"];
+const OVERLAY_ROUTES = ["/gifting"];
 
 export function Chrome() {
   const pathname = usePathname();
