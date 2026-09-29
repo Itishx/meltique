@@ -30,7 +30,12 @@ export interface Priced {
 }
 
 export function priceOf(product: Pick<Product, "priceInPaise">): Priced {
-  if (!LAUNCH_PRICING_ACTIVE) return { now: product.priceInPaise, was: null };
+  /* Launch pricing is a discount, so it can only ever bring a price down.
+     Anything already at or below the flat price keeps its own — otherwise a
+     cheaper item would be marked *up* to the "offer" price. */
+  if (!LAUNCH_PRICING_ACTIVE || product.priceInPaise <= LAUNCH_PRICE_IN_PAISE) {
+    return { now: product.priceInPaise, was: null };
+  }
   return {
     now: LAUNCH_PRICE_IN_PAISE,
     /* Never strike a price that is not actually higher — a "saving" of zero

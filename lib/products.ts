@@ -240,9 +240,51 @@ export const products: Product[] = [
   },
 ];
 
+/**
+ * A two-rupee SKU for testing that money actually moves.
+ *
+ * Hidden rather than merely unlinked: it is out of the shop, the flavour
+ * wall, the sitemap and the search index, and is only reachable by typing
+ * its URL. Delete it, and the matching Shopify product, once the first real
+ * order has settled.
+ */
+const testProducts: Product[] = [
+  {
+    slug: "test-box",
+    shopifyHandle: "test-box",
+    name: "Payment Test",
+    tagline: "Not for sale.",
+    summary: "A two-rupee item used to test checkout. Please do not order this.",
+    swatch: "#1c1917",
+    backdrop: "#241711",
+    weight: "Test item",
+    priceInPaise: 200,
+    sensoryNotes: ["Test"],
+    story: [
+      "This is not a product. It exists so that a real card payment can be put through the real checkout without charging anyone for a box of chocolate.",
+    ],
+    ingredients: ["Not applicable."],
+    allergens: ["Not applicable."],
+    dietary: [],
+    storage: "Not applicable.",
+    materials: [],
+    occasions: [],
+    hidden: true,
+    images: [
+      {
+        src: "/images/editorial/wrappers.jpg",
+        alt: "The four Meltyk wrappers laid side by side",
+      },
+    ],
+  },
+];
+
+/** Everything the router can render, the hidden test SKU included. */
+export const allProducts: Product[] = [...products, ...testProducts];
+
 /* ------------------------------------------------------------------ lookups */
 
-const bySlug = new Map(products.map((p) => [p.slug, p]));
+const bySlug = new Map(allProducts.map((p) => [p.slug, p]));
 
 export function getProduct(slug: string): Product | undefined {
   return bySlug.get(slug);

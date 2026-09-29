@@ -60,5 +60,12 @@ export interface Product {
   shopifyHandle?: string;
   assorted?: boolean;
   featured?: boolean;
+  /**
+   * Kept out of every listing, the sitemap and search engines, but still
+   * reachable at its own URL. Used for the live payment test: a real order
+   * has to go through the real cart and the real checkout to prove anything,
+   * and that cannot be done with a SKU customers can stumble into.
+   */
+  hidden?: boolean;
   related?: string[];
 }

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { getProduct, getRelated, products } from "@/lib/products";
+import { allProducts, getProduct, getRelated } from "@/lib/products";
 import { formatPrice } from "@/lib/format";
 import { priceOf } from "@/lib/pricing";
 import { site } from "@/lib/site";
@@ -12,7 +12,7 @@ import { ProductWall } from "@/components/product/ProductWall";
 import { ProductDetail } from "@/components/product/ProductDetail";
 
 export function generateStaticParams() {
-  return products.map((product) => ({ slug: product.slug }));
+  return allProducts.map((product) => ({ slug: product.slug }));
 }
 
 export async function generateMetadata({
@@ -28,6 +28,10 @@ export async function generateMetadata({
     title: product.name,
     description: `${product.tagline} ${product.story[0]}`.slice(0, 155),
     alternates: { canonical: `/product/${product.slug}` },
+    /* A hidden SKU is reachable by URL but must never be indexed — it is a
+       test fixture, and a search result for it would be a real shopper
+       finding a two-rupee item called "Payment Test". */
+    ...(product.hidden ? { robots: { index: false, follow: false } } : {}),
     openGraph: {
       type: "website",
       title: `${product.name} · ${site.name}`,

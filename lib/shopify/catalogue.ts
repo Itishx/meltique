@@ -1,6 +1,6 @@
 import "server-only";
 
-import { products as editorial } from "@/lib/products";
+import { allProducts as editorial } from "@/lib/products";
 import { isShopifyConfigured } from "./config";
 import { storefront } from "./client";
 import { PRODUCTS_QUERY } from "./queries";
