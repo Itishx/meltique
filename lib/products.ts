@@ -251,7 +251,7 @@ export const products: Product[] = [
 const testProducts: Product[] = [
   {
     slug: "test-box",
-    shopifyHandle: "test-box",
+    shopifyHandle: "test",
     name: "Payment Test",
     tagline: "Not for sale.",
     summary: "A two-rupee item used to test checkout. Please do not order this.",
