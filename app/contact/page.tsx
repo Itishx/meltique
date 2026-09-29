@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { business } from "@/lib/site";
 import { Reveal } from "@/components/ui/Reveal";
 import { ContactForm } from "@/components/site/ContactForm";
 
@@ -24,14 +25,38 @@ export default function ContactPage() {
             us directly.
           </p>
 
+          {/* A payment gateway, a courier and a customer all need to find
+              these, so they are plain text on the page rather than hidden
+              behind the form. */}
           <dl className="mt-12 space-y-6 border-t border-rule pt-8">
             <div>
-              <dt className="label text-muted">General</dt>
-              <dd className="mt-2 text-sm">Contact address to be confirmed.</dd>
+              <dt className="label text-muted">Email</dt>
+              <dd className="mt-2 text-sm">
+                <a href={`mailto:${business.email}`} className="link-draw">
+                  {business.email}
+                </a>
+              </dd>
             </div>
             <div>
-              <dt className="label text-muted">Gifting and corporate</dt>
-              <dd className="mt-2 text-sm">Contact address to be confirmed.</dd>
+              <dt className="label text-muted">Phone</dt>
+              <dd className="mt-2 text-sm">
+                <a href={`tel:${business.phoneHref}`} className="link-draw">
+                  {business.phone}
+                </a>
+                <span className="block text-muted">Mon to Sat, 10am to 6pm IST</span>
+              </dd>
+            </div>
+            <div>
+              <dt className="label text-muted">Address</dt>
+              <dd className="mt-2 text-sm">
+                <address className="not-italic text-muted">
+                  {business.address.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </address>
+              </dd>
             </div>
             <div>
               <dt className="label text-muted">Elsewhere</dt>

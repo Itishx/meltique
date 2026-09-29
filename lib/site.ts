@@ -46,6 +46,39 @@ export const offers = {
   },
 } as const;
 
+/**
+ * The business behind the shop.
+ *
+ * Kept here because these details appear in four places — the contact page,
+ * the privacy policy, the terms, and the footer — and a payment gateway will
+ * check that they agree with each other and with the account they hold.
+ */
+export const business = {
+  /** Trading name. The entity is a sole proprietorship, not a company. */
+  legalName: "Meltyk",
+  entityType: "Sole proprietorship",
+  email: "itishpande21@gmail.com",
+  phone: "+91 88792 90298",
+  /** Digits only, for tel: links. */
+  phoneHref: "+918879290298",
+  address: [
+    "Mesa School of Business",
+    "WeWork, Salarpuria Symbiosis",
+    "Bannerghatta Road, Arekere",
+    "Bengaluru, Karnataka 560076",
+    "India",
+  ],
+  /** Same address on one line, for policy prose. */
+  addressLine:
+    "Mesa School of Business, WeWork, Salarpuria Symbiosis, Bannerghatta Road, Arekere, Bengaluru, Karnataka 560076, India",
+  /** Window to report a damaged or melted box, in hours. */
+  reportWindowHours: 48,
+  /** Working days for a refund to reach the original payment method. */
+  refundDays: 7,
+  /** Working days from order to delivery, anywhere in India. */
+  deliveryDays: 7,
+} as const;
+
 export const nav = [
   { href: "/shop", label: "Shop" },
   { href: "/flavours", label: "Flavours" },
@@ -78,7 +111,7 @@ export const footerNav = [
     heading: "Policies",
     links: [
       { href: "/policies/shipping", label: "Shipping" },
-      { href: "/policies/returns", label: "Returns" },
+      { href: "/policies/returns", label: "Refunds" },
       { href: "/policies/privacy", label: "Privacy" },
       { href: "/policies/terms", label: "Terms" },
     ],
