@@ -17,7 +17,7 @@ import type { Product } from "./types";
  * a price is the POS — anything written straight to Shopify is liable to be
  * overwritten by the next POS sync.
  */
-export const LAUNCH_PRICE_IN_PAISE = 25000;
+export const LAUNCH_PRICE_IN_PAISE = 20000;
 
 /** Set false when the introductory run is over; everything reverts to list. */
 export const LAUNCH_PRICING_ACTIVE = true;
