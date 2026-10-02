@@ -21,7 +21,7 @@ const API_VERSION = "2026-07";
 const WRITE = process.argv.includes("--write");
 
 /** What a 90g parcel should actually cost to send within India. */
-const STANDARD_RATE = 70;
+const STANDARD_RATE = 50;
 
 /**
  * Domestic only.
