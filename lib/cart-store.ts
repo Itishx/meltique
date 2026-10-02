@@ -15,6 +15,42 @@ const STORAGE_KEY = "meltyk.cart.v1";
 const MAX_PER_LINE = 12;
 
 /**
+ * Slugs that have been renamed since carts started being saved.
+ *
+ * A cart lives in localStorage for months. When Classic Dark became Meltyk
+ * Muse the slug moved with it, and every basket saved before that kept
+ * pointing at a product the checkout could no longer resolve — so those lines
+ * were dropped on the way to Shopify and people watched their order shrink.
+ *
+ * Renaming a slug means adding an entry here. There is no way around it: the
+ * old value is already sitting in other people's browsers.
+ */
+const RENAMED_SLUGS: Record<string, string> = {
+  "classic-dark": "meltyk-muse",
+};
+
+function migrate(saved: CartLine[]): CartLine[] {
+  const merged = new Map<string, CartLine>();
+
+  for (const line of saved) {
+    const slug = RENAMED_SLUGS[line.slug] ?? line.slug;
+    const id = line.id === line.slug ? slug : line.id.replace(/^[^:]+/, slug);
+
+    /* A cart can hold both the old and the new slug — added either side of
+       the rename — and they are the same product, so they fold together. */
+    const existing = merged.get(id);
+    merged.set(
+      id,
+      existing
+        ? { ...existing, quantity: Math.min(MAX_PER_LINE, existing.quantity + line.quantity) }
+        : { ...line, id, slug },
+    );
+  }
+
+  return [...merged.values()];
+}
+
+/**
  * The cart lives outside React, in localStorage.
  *
  * Modelling it as an external store rather than effect-synchronised state
@@ -32,7 +68,8 @@ function read(): CartLine[] {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     if (!raw) return EMPTY;
     const parsed: unknown = JSON.parse(raw);
-    return Array.isArray(parsed) ? (parsed as CartLine[]) : EMPTY;
+    if (!Array.isArray(parsed)) return EMPTY;
+    return migrate(parsed as CartLine[]);
   } catch {
     /* Private browsing or blocked storage — an empty cart is the right answer. */
     return EMPTY;

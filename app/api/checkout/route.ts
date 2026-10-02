@@ -112,6 +112,26 @@ export async function POST(request: Request) {
     );
   }
 
+  /* Never check out a partial basket.
+     Previously any line Shopify could not resolve was dropped and the rest
+     went through, so a shopper watched a ₹1,500 cart arrive at checkout as
+     ₹500 with no explanation. If we cannot sell everything they chose, we
+     stop and say which item is the problem. */
+  if (unavailable.length > 0) {
+    console.error(
+      `[shopify] refusing partial checkout; unresolved: ${unavailable.join(", ")}`,
+    );
+    return NextResponse.json(
+      {
+        error: "partial",
+        message:
+          "One item in your box is no longer available, so we have not taken you to payment. Remove it and the rest will check out normally.",
+        unavailable,
+      },
+      { status: 409 },
+    );
+  }
+
   /* Shopify rate-limits private-token traffic per buyer, so it wants the
      shopper's address rather than Vercel's. */
   const buyerIp =

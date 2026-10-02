@@ -8,7 +8,7 @@ export type CheckoutResult =
      instead of showing an error, because that is the truthful state of the
      business rather than a failure. */
   | { kind: "pre-order"; message: string }
-  | { kind: "error"; message: string };
+  | { kind: "error"; message: string; unavailable?: string[] };
 
 /**
  * Hands the cart to Shopify and returns where the shopper should go next.
@@ -47,9 +47,18 @@ export async function startCheckout(lines: CartLine[]): Promise<CheckoutResult> 
     return { kind: "error", message: "The store sent an unreadable response." };
   }
 
-  /* 409 means everything in the cart is sold out. Like 503 that is a state of
-     the shop rather than a fault, so it routes to pre-order instead of an
-     error. */
+  /* A partial cart is the shopper's to fix, not a shop-wide outage, so it
+     surfaces as an error naming the item rather than as a pre-order nudge. */
+  if (response.status === 409 && body.error === "partial") {
+    return {
+      kind: "error",
+      message: body.message ?? "One item in your box is no longer available.",
+      unavailable: body.unavailable ?? [],
+    };
+  }
+
+  /* 503, and a 409 where nothing at all is available, are states of the shop
+     rather than faults, so they route to pre-order instead of an error. */
   if (response.status === 503 || response.status === 409) {
     return {
       kind: "pre-order",

@@ -1,0 +1,106 @@
+=========================================
+SHOPIFY FIELD: Shipping policy
+=========================================
+# Shipping
+Where we deliver, what it costs, and how long it takes.
+
+## Delivery areas
+We deliver anywhere in India that our courier partners reach. We do not ship outside India at present.
+If a pin code cannot be serviced, checkout will tell you before you pay rather than after.
+
+## Charges
+Delivery is a flat ₹70 anywhere in India, and free on orders over ₹999.
+The exact charge is shown at checkout before payment. There are no charges added after you pay.
+
+## Timings
+Orders are dispatched within two working days and delivered within 7 working days of being placed. Orders placed on a Sunday or a public holiday are processed the next working day.
+Tracking details are emailed to you as soon as the parcel leaves us.
+
+## Warm weather
+Chocolate is temperature-sensitive. In the hotter months we may hold a parcel for a day or repack it to protect it in transit, and we would rather your box arrive a day late than arrive soft.
+If a box does arrive melted, it is covered — see the refunds and cancellations policy.
+
+## Questions about a delivery
+Write to itishpande21@gmail.com or call +91 88792 90298, quoting your order number.
+
+=========================================
+SHOPIFY FIELD: Refund policy
+=========================================
+# Refunds & Cancellations
+What happens if a box arrives damaged, melted or wrong, and when an order can be cancelled.
+
+## Damaged, melted or incorrect orders
+If your box arrives damaged, melted, or is not what you ordered, we will replace it or refund it in full. Send us a photograph of the box within 48 hours of delivery, along with your order number, and we will arrange it.
+You do not need to send the original box back to us, and you are not charged delivery on a replacement.
+
+## Orders that do not arrive
+If a parcel is not delivered within 7 working days, tell us and we will either resend it or refund it in full. That is your choice, not ours.
+
+## Cancellations
+Orders go into production as soon as they are placed, so an order cannot be cancelled once it has been confirmed at checkout.
+If we cannot fulfil an order — a flavour sells out, a pin code turns out to be unserviceable, or a price is listed in error — we will cancel it ourselves and refund you in full. We will always tell you before we do.
+
+## Change of mind
+Chocolate is a perishable food product and boxes are sealed, so we cannot accept a return simply because you changed your mind. This does not affect anything above: a box that arrives damaged, melted, wrong or late is always covered.
+
+## Refund timings
+Approved refunds are sent back to the original payment method within 7 working days. Your bank may take a few days more to show it.
+Write to itishpande21@gmail.com or call +91 88792 90298, quoting your order number.
+
+=========================================
+SHOPIFY FIELD: Privacy policy
+=========================================
+# Privacy
+What we collect, why, and how long we keep it.
+
+## What we collect
+When you place an order we collect your name, email address, phone number, delivery address and what you ordered. If you write to us, we keep that correspondence.
+We never see or store your card, UPI or netbanking details. Payment is handled entirely by our payment gateway, and those details do not pass through this website.
+
+## How it is used
+To take your order, deliver it, answer questions about it, and meet our tax and accounting obligations. Nothing else.
+We do not sell your data, and we do not share it with anyone for advertising.
+
+## Who else processes it
+Shopify runs our store and checkout. Razorpay processes payments. Vercel hosts this website. Our courier partner receives your name, address and phone number so that they can deliver your parcel. Each of them only receives what they need to do that job.
+This site runs no analytics, advertising or email-marketing tools of its own.
+
+## Cookies and local storage
+Your cart is kept in your own browser's local storage so that it survives a refresh. It stays on your device and is never sent to us. Clearing your browser data clears it.
+Shopify sets the cookies it needs to run a checkout securely.
+
+## How long we keep it
+Order records are kept for as long as tax and accounting rules require. Anything we do not need, we delete.
+
+## Your rights
+You can ask us what we hold about you, ask us to correct it, or ask us to delete it. Write to itishpande21@gmail.com and we will action it within 30 days. Where an order record must be kept for tax reasons, we will tell you.
+
+=========================================
+SHOPIFY FIELD: Terms of service
+=========================================
+# Terms
+The terms that apply when you order from MELTYK.
+
+## Who you are buying from
+MELTYK is a trading name of Meltyk, a sole proprietorship based at Mesa School of Business, WeWork, Salarpuria Symbiosis, Bannerghatta Road, Arekere, Bengaluru, Karnataka 560076, India.
+You can reach us at itishpande21@gmail.com or +91 88792 90298.
+
+## Orders
+Placing an order is an offer to buy. The order is accepted when we dispatch it, and we may decline one before then — if a flavour has sold out, a delivery address cannot be serviced, or a price was listed in error. If we decline an order you have paid for, you are refunded in full.
+
+## Pricing
+All prices are in Indian Rupees and are inclusive of any taxes that apply. The price you see at checkout is the price you pay.
+Introductory pricing runs for a limited period and can end without notice. It does not change the price of an order already placed.
+
+## The product
+MELTYK is a chocolate product. It contains milk and tree nuts, and is made in a kitchen that also handles other allergens. Each product page lists its ingredients and allergens in full, and it is your responsibility to read them before ordering or before giving a box to someone else.
+Store the box cool and dry, away from direct sunlight.
+
+## Liability
+Our liability for any order is limited to the amount you paid for it. Nothing in these terms limits liability that cannot be limited under Indian law, including under the Consumer Protection Act, 2019.
+
+## Content
+The photography, writing and design on this site belong to us. Please do not reuse them commercially without asking.
+
+## Governing law
+These terms are governed by the laws of India, and the courts at Bengaluru, Karnataka have exclusive jurisdiction over any dispute.
